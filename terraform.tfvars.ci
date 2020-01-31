@@ -1,0 +1,3 @@
+resource_group_name="test-rg"
+storage_account_name="mystorageaccount"
+sas_token_expiry="2022-21-25T20:03:45Z"
