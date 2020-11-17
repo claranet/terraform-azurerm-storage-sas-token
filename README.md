@@ -10,12 +10,14 @@ or a [Container Service SAS](https://docs.microsoft.com/en-us/rest/api/storagese
 
 Only the Service SAS for containers is implemented right now. 
 
-## Terraform version compatibility
+## Version compatibility
 
-| Module version | Terraform version |
-|----------------|-------------------|
-| >= 2.x.x       | 0.12.x            |
-| < 2.x.x        | 0.11.x            |
+| Module version | Terraform version | AzureRM version |
+|----------------|-------------------| --------------- |
+| >= 4.x.x       | 0.13.x            | >= 2.0          |
+| >= 3.x.x       | 0.12.x            | >= 2.0          |
+| >= 2.x.x       | 0.12.x            | < 2.0           |
+| <  2.x.x       | 0.11.x            | < 2.0           |
 
 ## Usage
 
@@ -108,15 +110,15 @@ module "container-sas-token" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | enabled | "false" to disable this module. This variable aims to workaround the lack of count for modules. | `bool` | `true` | no |
 | permissions\_account | The permissions the Account SAS grants. Allowed values: (a)dd (c)reate (d)elete (l)ist (p)rocess (r)ead (u)pdate (w)rite. Can be combined. | `string` | `"wlacu"` | no |
 | permissions\_container | The permissions the Container SAS grants. Allowed values: (a)dd (c)reate (d)elete (l)ist (r)ead (w)rite. Can be combined. | `string` | `"dlrw"` | no |
-| resource\_group\_name | Resource Group of the storage account | `string` | n/a | yes |
+| resource\_group\_name | Resource Group of the storage account | `string` | `null` | no |
 | resources\_types | The resource types the Account SAS is applicable for. Allowed values: (s)ervice (c)ontainer (o)bject. Can be combined. | `string` | `"sco"` | no |
 | sas\_token\_expiry | Storage Account SAS Token end date (expiry). Specifies the UTC datetime (Y-m-d'T'H:M'Z') at which the SAS becomes invalid. | `string` | `"2042-01-01T00:00:00Z"` | no |
 | services | The storage services the Account SAS is applicable for. Allowed values: (b)lob (f)ile (q)ueue (t)able. Can be combined. | `string` | `"bfqt"` | no |
-| storage\_account\_name | Name of the Storage Account | `string` | n/a | yes |
+| storage\_account\_name | Name of the Storage Account | `string` | `null` | no |
 | storage\_container | Storage Account Container to use in order to generate a Service SAS Token. | `string` | `""` | no |
 
 ## Outputs
