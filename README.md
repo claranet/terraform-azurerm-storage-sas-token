@@ -13,7 +13,8 @@ Only the Service SAS for containers is implemented right now.
 ## Version compatibility
 
 | Module version | Terraform version | AzureRM version |
-|----------------|-------------------| --------------- |
+| -------------- | ----------------- | --------------- |
+| >= 5.x.x       | 0.15.x & 1.0.x    | >= 2.0          |
 | >= 4.x.x       | 0.13.x            | >= 2.0          |
 | >= 3.x.x       | 0.12.x            | >= 2.0          |
 | >= 2.x.x       | 0.12.x            | < 2.0           |
@@ -107,6 +108,25 @@ module "container-sas-token" {
 }
 ```
 
+<!-- BEGIN_TF_DOCS -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurerm | >= 1.1.1 |
+| external | >= 2.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_storage_account.storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/storage_account) | data source |
+| [external_external.generate_storage_sas_token](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -127,7 +147,7 @@ module "container-sas-token" {
 |------|-------------|
 | storage\_account\_sas\_container\_uri | SAS URI generated for access on Storage Account Container. |
 | storage\_account\_sas\_token | SAS Token generated for access on Storage Account. |
-
+<!-- END_TF_DOCS -->
 ## Related documentation
 
 Microsoft Azure documentation: [docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview)
