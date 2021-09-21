@@ -10,7 +10,8 @@ or a [Container Service SAS](https://docs.microsoft.com/en-us/rest/api/storagese
 
 Only the Service SAS for containers is implemented right now. 
 
-## Version compatibility
+<!-- BEGIN_TF_DOCS -->
+## Global versioning rule for Claranet Azure modules
 
 | Module version | Terraform version | AzureRM version |
 | -------------- | ----------------- | --------------- |
@@ -22,12 +23,12 @@ Only the Service SAS for containers is implemented right now.
 
 ## Usage
 
-### Account SAS
-
-You can use this module by including it this way:
+This module is optimized to work with the [Claranet terraform-wrapper](https://github.com/claranet/terraform-wrapper) tool
+which set some terraform variables in the environment needed by this module.
+More details about variables set by the `terraform-wrapper` available in the [documentation](https://github.com/claranet/terraform-wrapper#environment).
 
 ```hcl
-module "azure-region" {
+module "azure_region" {
   source  = "claranet/regions/azurerm"
   version = "x.x.x"
 
@@ -38,67 +39,37 @@ module "rg" {
   source  = "claranet/rg/azurerm"
   version = "x.x.x"
 
-  location     = module.azure-region.location
-  client_name  = var.client_name
-  environment  = var.environment
-  stack        = var.stack
+  location    = module.azure_region.location
+  client_name = var.client_name
+  environment = var.environment
+  stack       = var.stack
 }
 
+### Account SAS
 resource "azurerm_storage_account" "my_storage" {
   account_replication_type = "LRS"
   account_tier             = "Standard"
-  location                 = module.azure-region.location
+  location                 = module.azure_region.location
   name                     = "mystorage"
   resource_group_name      = module.rg.resource_group_name
 }
 
-module "storage-sas-token" {
+module "storage_sas_token" {
   source  = "claranet/storage-sas-token/azurerm"
   version = "x.x.x"
 
   storage_account_name = azurerm_storage_account.my_storage
   resource_group_name  = module.rg.resource_group_name
 }
-```
 
 ### Service SAS for a container
-
-You can use this module by including it this way:
-
-```hcl
-module "azure-region" {
-  source  = "claranet/regions/azurerm"
-  version = "x.x.x"
-
-  azure_region = var.azure_region
-}
-
-module "rg" {
-  source  = "claranet/rg/azurerm"
-  version = "x.x.x"
-
-  location     = module.azure-region.location
-  client_name  = var.client_name
-  environment  = var.environment
-  stack        = var.stack
-}
-
-resource "azurerm_storage_account" "my_storage" {
-  account_replication_type = "LRS"
-  account_tier             = "Standard"
-  location                 = module.azure-region.location
-  name                     = "mystorage"
-  resource_group_name      = module.rg.resource_group_name
-}
-
 resource "azurerm_storage_container" "my_container" {
   name                  = "mycontainer"
-  resource_group_name   = module.rg.resource_group_name
   storage_account_name  = azurerm_storage_account.my_storage
   container_access_type = "private"
 }
 
-module "container-sas-token" {
+module "container_sas_token" {
   source  = "claranet/storage-sas-token/azurerm"
   version = "x.x.x"
 
@@ -106,9 +77,9 @@ module "container-sas-token" {
   resource_group_name  = module.rg.resource_group_name
   storage_container    = azurerm_storage_container.my_container.name
 }
+
 ```
 
-<!-- BEGIN_TF_DOCS -->
 ## Providers
 
 | Name | Version |
