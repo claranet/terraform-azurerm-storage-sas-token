@@ -1,5 +1,8 @@
 # Unreleased
 
+Breaking
+  * AZ-647: Fix `external` provider version constraint (compatible Terraform 0.13+ only)
+
 Changed
   * AZ-572: Revamp examples and improve CI
 
