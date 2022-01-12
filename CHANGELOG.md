@@ -1,4 +1,4 @@
-# Unreleased
+# v4.1.0 - 2022-01-12
 
 Breaking
   * AZ-647: Fix `external` provider version constraint (compatible Terraform 0.13+ only)
@@ -6,7 +6,7 @@ Breaking
 Changed
   * AZ-572: Revamp examples and improve CI
 
-# v3.0.1/V4.0.1 - 2021-08-27
+# v3.0.1/v4.0.1 - 2021-08-27
 
 Changed
   * AZ-532: Revamp README with latest `terraform-docs` tool
