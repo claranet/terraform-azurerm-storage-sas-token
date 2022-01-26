@@ -1,12 +1,4 @@
-data "azurerm_storage_account" "storage" {
-  count = var.enabled ? 1 : 0
-
-  name                = var.storage_account_name
-  resource_group_name = var.resource_group_name
-}
-
 data "external" "generate_storage_sas_token" {
-  count = var.enabled ? 1 : 0
 
   program = ["bash", "${path.module}/files/script_sas_token.sh"]
 

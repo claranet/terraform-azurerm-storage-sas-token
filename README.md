@@ -58,8 +58,10 @@ module "storage_sas_token" {
   source  = "claranet/storage-sas-token/azurerm"
   version = "x.x.x"
 
-  storage_account_name = azurerm_storage_account.my_storage.name
-  resource_group_name  = module.rg.resource_group_name
+  storage_account_name              = azurerm_storage_account.my_storage.name
+  storage_account_connection_string = azurerm_storage_account.my_storage.primary_connection_string
+
+  resource_group_name = module.rg.resource_group_name
 }
 
 ### Service SAS for a container
@@ -73,9 +75,12 @@ module "container_sas_token" {
   source  = "claranet/storage-sas-token/azurerm"
   version = "x.x.x"
 
-  storage_account_name = azurerm_storage_account.my_storage.name
-  resource_group_name  = module.rg.resource_group_name
-  storage_container    = azurerm_storage_container.my_container.name
+  storage_account_name                  = azurerm_storage_account.my_storage.name
+  storage_account_connection_string     = azurerm_storage_account.my_storage.primary_connection_string
+  storage_account_primary_blob_endpoint = azurerm_storage_account.my_storage.primary_blob_endpoint
+
+  resource_group_name = module.rg.resource_group_name
+  storage_container   = azurerm_storage_container.my_container.name
 }
 
 ```
@@ -84,7 +89,6 @@ module "container_sas_token" {
 
 | Name | Version |
 |------|---------|
-| azurerm | >= 1.1.1 |
 | external | >= 2.0 |
 
 ## Modules
@@ -95,21 +99,21 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azurerm_storage_account.storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/storage_account) | data source |
 | [external_external.generate_storage_sas_token](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| enabled | "false" to disable this module. This variable aims to workaround the lack of count for modules. | `bool` | `true` | no |
 | permissions\_account | The permissions the Account SAS grants. Allowed values: (a)dd (c)reate (d)elete (l)ist (p)rocess (r)ead (u)pdate (w)rite. Can be combined. | `string` | `"wlacu"` | no |
 | permissions\_container | The permissions the Container SAS grants. Allowed values: (a)dd (c)reate (d)elete (l)ist (r)ead (w)rite. Can be combined. | `string` | `"dlrw"` | no |
 | resource\_group\_name | Resource Group of the storage account | `string` | `null` | no |
 | resources\_types | The resource types the Account SAS is applicable for. Allowed values: (s)ervice (c)ontainer (o)bject. Can be combined. | `string` | `"sco"` | no |
 | sas\_token\_expiry | Storage Account SAS Token end date (expiry). Specifies the UTC datetime (Y-m-d'T'H:M'Z') at which the SAS becomes invalid. | `string` | `"2042-01-01T00:00:00Z"` | no |
 | services | The storage services the Account SAS is applicable for. Allowed values: (b)lob (f)ile (q)ueue (t)able. Can be combined. | `string` | `"bfqt"` | no |
+| storage\_account\_connection\_string | Connection String of the Storage Account | `string` | `null` | no |
 | storage\_account\_name | Name of the Storage Account | `string` | `null` | no |
+| storage\_account\_primary\_blob\_endpoint | Primary Blob Endpoint of the Storage Account | `string` | `null` | no |
 | storage\_container | Storage Account Container to use in order to generate a Service SAS Token. | `string` | `""` | no |
 
 ## Outputs

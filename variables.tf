@@ -1,9 +1,3 @@
-variable "enabled" {
-  description = "\"false\" to disable this module. This variable aims to workaround the lack of count for modules."
-  type        = bool
-  default     = true
-}
-
 variable "resource_group_name" {
   description = "Resource Group of the storage account"
   type        = string
@@ -12,6 +6,18 @@ variable "resource_group_name" {
 
 variable "storage_account_name" {
   description = "Name of the Storage Account"
+  type        = string
+  default     = null
+}
+
+variable "storage_account_connection_string" {
+  description = "Connection String of the Storage Account"
+  type        = string
+  default     = null
+}
+
+variable "storage_account_primary_blob_endpoint" {
+  description = "Primary Blob Endpoint of the Storage Account"
   type        = string
   default     = null
 }
