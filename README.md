@@ -107,7 +107,6 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | permissions\_account | The permissions the Account SAS grants. Allowed values: (a)dd (c)reate (d)elete (l)ist (p)rocess (r)ead (u)pdate (w)rite. Can be combined. | `string` | `"wlacu"` | no |
 | permissions\_container | The permissions the Container SAS grants. Allowed values: (a)dd (c)reate (d)elete (l)ist (r)ead (w)rite. Can be combined. | `string` | `"dlrw"` | no |
-| resource\_group\_name | Resource Group of the storage account | `string` | `null` | no |
 | resources\_types | The resource types the Account SAS is applicable for. Allowed values: (s)ervice (c)ontainer (o)bject. Can be combined. | `string` | `"sco"` | no |
 | sas\_token\_expiry | Storage Account SAS Token end date (expiry). Specifies the UTC datetime (Y-m-d'T'H:M'Z') at which the SAS becomes invalid. | `string` | `"2042-01-01T00:00:00Z"` | no |
 | services | The storage services the Account SAS is applicable for. Allowed values: (b)lob (f)ile (q)ueue (t)able. Can be combined. | `string` | `"bfqt"` | no |

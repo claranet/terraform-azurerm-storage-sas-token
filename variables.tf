@@ -1,9 +1,3 @@
-variable "resource_group_name" {
-  description = "Resource Group of the storage account"
-  type        = string
-  default     = null
-}
-
 variable "storage_account_name" {
   description = "Name of the Storage Account"
   type        = string

@@ -3,8 +3,8 @@ data "external" "generate_storage_sas_token" {
   program = ["bash", "${path.module}/files/script_sas_token.sh"]
 
   query = {
-    storage_account_name      = join("", data.azurerm_storage_account.storage.*.name)
-    storage_connection_string = join("", data.azurerm_storage_account.storage.*.primary_connection_string)
+    storage_account_name      = var.storage_account_name
+    storage_connection_string = var.storage_account_connection_string
     storage_container         = var.storage_container
     token_expiry              = var.sas_token_expiry
     services                  = var.services
