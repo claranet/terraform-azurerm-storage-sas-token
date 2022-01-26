@@ -1,19 +1,6 @@
-variable "storage_account_name" {
-  description = "Name of the Storage Account"
-  type        = string
-  default     = null
-}
-
 variable "storage_account_connection_string" {
   description = "Connection String of the Storage Account"
   type        = string
-  default     = null
-}
-
-variable "storage_account_primary_blob_endpoint" {
-  description = "Primary Blob Endpoint of the Storage Account"
-  type        = string
-  default     = null
 }
 
 variable "sas_token_expiry" {

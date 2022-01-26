@@ -58,7 +58,6 @@ module "storage_sas_token" {
   source  = "claranet/storage-sas-token/azurerm"
   version = "x.x.x"
 
-  storage_account_name              = azurerm_storage_account.my_storage.name
   storage_account_connection_string = azurerm_storage_account.my_storage.primary_connection_string
 
 }
@@ -74,7 +73,6 @@ module "container_sas_token" {
   source  = "claranet/storage-sas-token/azurerm"
   version = "x.x.x"
 
-  storage_account_name                  = azurerm_storage_account.my_storage.name
   storage_account_connection_string     = azurerm_storage_account.my_storage.primary_connection_string
   storage_account_primary_blob_endpoint = azurerm_storage_account.my_storage.primary_blob_endpoint
 
@@ -108,9 +106,7 @@ No modules.
 | resources\_types | The resource types the Account SAS is applicable for. Allowed values: (s)ervice (c)ontainer (o)bject. Can be combined. | `string` | `"sco"` | no |
 | sas\_token\_expiry | Storage Account SAS Token end date (expiry). Specifies the UTC datetime (Y-m-d'T'H:M'Z') at which the SAS becomes invalid. | `string` | `"2042-01-01T00:00:00Z"` | no |
 | services | The storage services the Account SAS is applicable for. Allowed values: (b)lob (f)ile (q)ueue (t)able. Can be combined. | `string` | `"bfqt"` | no |
-| storage\_account\_connection\_string | Connection String of the Storage Account | `string` | `null` | no |
-| storage\_account\_name | Name of the Storage Account | `string` | `null` | no |
-| storage\_account\_primary\_blob\_endpoint | Primary Blob Endpoint of the Storage Account | `string` | `null` | no |
+| storage\_account\_connection\_string | Connection String of the Storage Account | `string` | n/a | yes |
 | storage\_container | Storage Account Container to use in order to generate a Service SAS Token. | `string` | `""` | no |
 
 ## Outputs

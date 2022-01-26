@@ -28,7 +28,6 @@ module "storage_sas_token" {
   source  = "claranet/storage-sas-token/azurerm"
   version = "x.x.x"
 
-  storage_account_name              = azurerm_storage_account.my_storage.name
   storage_account_connection_string = azurerm_storage_account.my_storage.primary_connection_string
 
 }
@@ -44,7 +43,6 @@ module "container_sas_token" {
   source  = "claranet/storage-sas-token/azurerm"
   version = "x.x.x"
 
-  storage_account_name                  = azurerm_storage_account.my_storage.name
   storage_account_connection_string     = azurerm_storage_account.my_storage.primary_connection_string
   storage_account_primary_blob_endpoint = azurerm_storage_account.my_storage.primary_blob_endpoint
 

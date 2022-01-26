@@ -3,7 +3,7 @@ data "external" "generate_storage_sas_token" {
   program = ["bash", "${path.module}/files/script_sas_token.sh"]
 
   query = {
-    storage_account_name      = var.storage_account_name
+    storage_account_name      = local.sa_name
     storage_connection_string = var.storage_account_connection_string
     storage_container         = var.storage_container
     token_expiry              = var.sas_token_expiry
@@ -13,3 +13,5 @@ data "external" "generate_storage_sas_token" {
     permissions_container     = var.permissions_container
   }
 }
+
+
