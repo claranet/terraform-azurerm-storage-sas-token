@@ -28,8 +28,7 @@ module "storage_sas_token" {
   source  = "claranet/storage-sas-token/azurerm"
   version = "x.x.x"
 
-  storage_account_name = azurerm_storage_account.my_storage.name
-  resource_group_name  = module.rg.resource_group_name
+  storage_account_connection_string = azurerm_storage_account.my_storage.primary_connection_string
 }
 
 ### Service SAS for a container
@@ -43,7 +42,6 @@ module "container_sas_token" {
   source  = "claranet/storage-sas-token/azurerm"
   version = "x.x.x"
 
-  storage_account_name = azurerm_storage_account.my_storage.name
-  resource_group_name  = module.rg.resource_group_name
-  storage_container    = azurerm_storage_container.my_container.name
+  storage_account_connection_string = azurerm_storage_account.my_storage.primary_connection_string
+  storage_container                 = azurerm_storage_container.my_container.name
 }
