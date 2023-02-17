@@ -3,12 +3,12 @@
 
 This Terraform module generates a [SAS token](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
 
-It could be either an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/create-account-sas) 
+It could be either an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/create-account-sas)
 or a [Container Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/create-service-sas).
 
 ## Limitations
 
-Only the Service SAS for containers is implemented right now. 
+Only the Service SAS for containers is implemented right now.
 
 <!-- BEGIN_TF_DOCS -->
 ## Global versioning rule for Claranet Azure modules
@@ -22,6 +22,13 @@ Only the Service SAS for containers is implemented right now.
 | >= 3.x.x       | 0.12.x            | >= 2.0          |
 | >= 2.x.x       | 0.12.x            | < 2.0           |
 | <  2.x.x       | 0.11.x            | < 2.0           |
+
+## Contributing
+
+If you want to contribute to this repository, feel free to use our [pre-commit](https://pre-commit.com/) git hook configuration
+which will help you automatically update and format some files for you by enforcing our Terraform code module best-practices.
+
+More details are available in the [CONTRIBUTING.md](./CONTRIBUTING.md#pull-request-process) file.
 
 ## Usage
 
