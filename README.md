@@ -61,6 +61,7 @@ resource "azurerm_storage_account" "my_storage" {
   location                 = module.azure_region.location
   name                     = "mystorage"
   resource_group_name      = module.rg.resource_group_name
+  min_tls_version          = "TLS1_2"
 }
 
 module "storage_sas_token" {

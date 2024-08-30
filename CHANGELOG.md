@@ -1,6 +1,6 @@
-# v4.2.0 - 2022-02-11 
+# v4.2.0 - 2022-02-11
 
-Fixed 
+Fixed
   * AZ-674: Fix SAS token generation bug (datasource that reference a non created resource). Clean no more needed module variables.
 
 # v4.1.0 - 2022-01-12

@@ -13,5 +13,3 @@ data "external" "generate_storage_sas_token" {
     permissions_container     = var.permissions_container
   }
 }
-
-
