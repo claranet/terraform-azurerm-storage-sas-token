@@ -41,30 +41,13 @@ More details about variables set by the `terraform-wrapper` available in the [do
 [Hashicorp Terraform](https://github.com/hashicorp/terraform/). Instead, we recommend to use [OpenTofu](https://github.com/opentofu/opentofu/).
 
 ```hcl
-module "azure_region" {
-  source  = "claranet/regions/azurerm"
-  version = "x.x.x"
-
-  azure_region = var.azure_region
-}
-
-module "rg" {
-  source  = "claranet/rg/azurerm"
-  version = "x.x.x"
-
-  location    = module.azure_region.location
-  client_name = var.client_name
-  environment = var.environment
-  stack       = var.stack
-}
-
 ### Account SAS
 resource "azurerm_storage_account" "my_storage" {
   account_replication_type = "LRS"
   account_tier             = "Standard"
   location                 = module.azure_region.location
   name                     = "mystorage"
-  resource_group_name      = module.rg.resource_group_name
+  resource_group_name      = module.rg.name
   min_tls_version          = "TLS1_2"
 }
 
@@ -116,7 +99,7 @@ No modules.
 | resources\_types | The resource types the Account SAS is applicable for. Allowed values: (s)ervice (c)ontainer (o)bject. Can be combined. | `string` | `"sco"` | no |
 | sas\_token\_expiry | Storage Account SAS Token end date (expiry). Specifies the UTC datetime (Y-m-d'T'H:M'Z') at which the SAS becomes invalid. | `string` | `"2042-01-01T00:00:00Z"` | no |
 | services | The storage services the Account SAS is applicable for. Allowed values: (b)lob (f)ile (q)ueue (t)able. Can be combined. | `string` | `"bfqt"` | no |
-| storage\_account\_connection\_string | Connection String of the Storage Account | `string` | n/a | yes |
+| storage\_account\_connection\_string | Connection String of the Storage Account. | `string` | n/a | yes |
 | storage\_container | Storage Account Container to use in order to generate a Service SAS Token. | `string` | `""` | no |
 
 ## Outputs

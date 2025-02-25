@@ -1,5 +1,5 @@
 variable "storage_account_connection_string" {
-  description = "Connection String of the Storage Account"
+  description = "Connection String of the Storage Account."
   type        = string
 }
 
