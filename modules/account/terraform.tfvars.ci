@@ -1,0 +1,4 @@
+services       = ["blob", "file"]
+permissions        = ["read", "write", "list"]
+storage_account_id = "/subscriptions/74eca770-5371-40d9-8767-a9187d7e9fdd/resourceGroups/cloud-shell-storage-westeurope/providers/Microsoft.Storage/storageAccounts/csb1003bffda090861b"
+resources_types       = ["service", "container", "object"]
