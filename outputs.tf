@@ -1,11 +1,17 @@
-output "storage_account_sas_token" {
-  description = "SAS Token generated for access on Storage Account."
-  value       = local.sas_token
+output "module_service" {
+  description = "Service sas token module output."
+  value       = var.token_type == "service" ? module.service_token : null
   sensitive   = true
 }
 
-output "storage_account_sas_container_uri" {
-  description = "SAS URI generated for access on Storage Account Container."
-  value       = local.sas_uri_container
+output "module_account" {
+  description = "Account sas token module output."
+  value       = var.token_type == "account" ? module.account_token : null
+  sensitive   = true
+}
+
+output "sas_token" {
+  description = "SAS Token for accessing the Storage Account."
+  value       = var.token_type == "service" ? module.service_token.sas_token : module.account_token.sas_token
   sensitive   = true
 }
