@@ -1,3 +1,24 @@
+## 8.1.0 (2025-05-16)
+
+### Features
+
+* **AZ-1551:** ✨ force tofu 1.9 for validation constraints 6ec32b5
+* **AZ-1551:** 💥 ✨ rework module with AzAPI 9086b53
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.9.1 8abfbdb
+* **deps:** update dependency pre-commit to v4.2.0 9c47c0a
+* **deps:** update dependency terraform-docs to v0.20.0 1734dbc
+* **deps:** update dependency tflint to v0.57.0 9b12915
+* **deps:** update dependency trivy to v0.60.0 1275ef1
+* **deps:** update dependency trivy to v0.61.1 6384f33
+* **deps:** update dependency trivy to v0.62.0 3555058
+* **deps:** update dependency trivy to v0.62.1 912b1de
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.22.0 58b0d74
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.2.0 7008ac2
+* **deps:** update tools 1656889
+
 ## 8.0.0 (2025-02-28)
 
 ### ⚠ BREAKING CHANGES
