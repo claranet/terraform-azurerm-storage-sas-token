@@ -12,6 +12,6 @@ output "module_account" {
 
 output "sas_token" {
   description = "SAS Token for accessing the Storage Account."
-  value       = var.token_type == "service" ? module.service_token.sas_token : module.account_token.sas_token
+  value       = var.token_type == "service" ? one(module.service_token[*].sas_token) : one(module.account_token[*].sas_token)
   sensitive   = true
 }
