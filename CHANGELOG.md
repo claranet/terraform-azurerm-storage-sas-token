@@ -1,3 +1,14 @@
+## 8.1.1 (2025-06-06)
+
+### Bug Fixes
+
+* **AZ-1570:** 🔧 update output value to use `one` for SAS token retrieval 8b811db
+
+### Miscellaneous Chores
+
+* **deps:** update dependency tflint to v0.58.0 6c4a91b
+* **deps:** update dependency trivy to v0.63.0 8157261
+
 ## 8.1.0 (2025-05-16)
 
 ### Features
