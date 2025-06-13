@@ -44,10 +44,10 @@ get_service_params() {
             # Assuming service_name format is "share/filepath"
             local share_name="${service_name%%/*}"
             local file_path="${service_name#*/}"
-            echo "--share-name $share_name --file-path $file_path"
+            echo "--name $share_name --file-path $file_path"
             ;;
         "share")
-            echo "--share-name $service_name"
+            echo "--name $service_name"
             ;;
         *)
             log_error "Service type $service_type not supported for service-level SAS"
