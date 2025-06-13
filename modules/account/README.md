@@ -48,7 +48,7 @@ module "sas_token" {
 
 | Name | Version |
 |------|---------|
-| azapi | ~> 2.3 |
+| external | ~> 2.3 |
 | time | ~> 0.13 |
 
 ## Modules
@@ -60,7 +60,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [time_static.main](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/static) | resource |
-| [azapi_resource_action.main](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_action) | data source |
+| [external_external.main](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
 
 ## Inputs
 
@@ -78,6 +78,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| resource | AzAPI resource action object. |
+| resource | External data source object. |
 | sas\_token | SAS Token for accessing the Storage Account. |
 <!-- END_TF_DOCS -->
