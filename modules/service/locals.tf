@@ -113,14 +113,14 @@ locals {
   # Generate permissions string in strict order
   permissions = join("", [
     for symbol in local.permissions_order :
-    symbol if anytrue([
+    symbol if length([
       for permission, config in local.permissions_mapping :
-      config.symbol == symbol && contains(local.valid_requested_permissions, permission)
-    ])
+      permission if config.symbol == symbol && contains(local.valid_requested_permissions, permission)
+    ]) > 0
   ])
 
-  storage_account_id_parsed = provider::azapi::parse_resource_id("Microsoft.Storage/storageAccounts", var.storage_account_id)
-  storage_account_name      = local.storage_account_id_parsed["name"]
+  storage_account_id_parsed       = provider::azapi::parse_resource_id("Microsoft.Storage/storageAccounts", var.storage_account_id)
+  storage_account_name            = local.storage_account_id_parsed["name"]
+  storage_account_subscription_id = local.storage_account_id_parsed["subscription_id"]
 
-  canonicalized_resource = format("%s/%s/%s", local.signed_resource[var.service_type].canonicalized_resource_prefix, local.storage_account_name, var.service_name)
 }

@@ -4,7 +4,7 @@ data "azapi_resource_action" "main" {
   action      = "ListAccountSas"
   method      = "POST"
   body = {
-    signedExpiry        = formatdate("YYYY-MM-DD'T'hh:mm:ss'Z'", timeadd(time_static.main.rfc3339, format("%dh", var.expiration_duration_in_hours)))
+    signedExpiry        = formatdate("YYYY-MM-DD'T'hh:mm:ssZ", timeadd(time_static.main.rfc3339, format("%dh", var.expiration_duration_in_hours)))
     signedPermission    = local.permissions
     signedResourceTypes = local.resource_types
     signedServices      = local.services

@@ -41,3 +41,13 @@ variable "service_name" {
   description = "Name of the service to generate the SAS token for. It can be a container name, blob name, file share name, etc."
   type        = string
 }
+
+variable "storage_key_name" {
+  description = "Name of the storage key to use for generating the SAS token. Default is `key1`."
+  type        = string
+  default     = "key1"
+  validation {
+    condition     = contains(["key1", "key2"], var.storage_key_name)
+    error_message = "Allowed values are: key1, key2."
+  }
+}
