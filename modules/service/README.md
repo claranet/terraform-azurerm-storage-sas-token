@@ -62,7 +62,7 @@ module "share_sas_token" {
 
 | Name | Version |
 |------|---------|
-| azapi | ~> 2.3 |
+| external | ~> 2.3 |
 | time | ~> 0.13 |
 
 ## Modules
@@ -74,7 +74,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [time_static.main](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/static) | resource |
-| [azapi_resource_action.main](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_action) | data source |
+| [external_external.main](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
 
 ## Inputs
 
@@ -86,11 +86,12 @@ No modules.
 | service\_name | Name of the service to generate the SAS token for. It can be a container name, blob name, file share name, etc. | `string` | n/a | yes |
 | service\_type | Type of the service to generate a SAS token for. Must be one of : container, blob, file, share. | `string` | n/a | yes |
 | storage\_account\_id | ID of the Storage Account to generate the SAS token for. | `string` | n/a | yes |
+| storage\_key\_name | Name of the storage key to use for generating the SAS token. Default is `key1`. | `string` | `"key1"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| resource | AzAPI resource action object. |
+| resource | External data source object. |
 | sas\_token | Generated SAS token for accessing the Storage Account. |
 <!-- END_TF_DOCS -->

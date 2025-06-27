@@ -101,13 +101,26 @@ locals {
     }
   }
 
-  permissions = join("", [
+  # Define the strict order for permissions symbols
+  permissions_order = ["r", "a", "c", "w", "d", "x", "l", "t", "m", "e", "o", "p"]
+
+  # Create a set of requested permissions that are valid for the service type
+  valid_requested_permissions = toset([
     for permission in var.permissions :
-    local.permissions_mapping[permission].symbol if contains(local.permissions_mapping[permission].scope, var.service_type)
+    permission if contains(local.permissions_mapping[permission].scope, var.service_type)
   ])
 
-  storage_account_id_parsed = provider::azapi::parse_resource_id("Microsoft.Storage/storageAccounts", var.storage_account_id)
-  storage_account_name      = local.storage_account_id_parsed["name"]
+  # Generate permissions string in strict order
+  permissions = join("", [
+    for symbol in local.permissions_order :
+    symbol if length([
+      for permission, config in local.permissions_mapping :
+      permission if config.symbol == symbol && contains(local.valid_requested_permissions, permission)
+    ]) > 0
+  ])
 
-  canonicalized_resource = format("%s/%s/%s", local.signed_resource[var.service_type].canonicalized_resource_prefix, local.storage_account_name, var.service_name)
+  storage_account_id_parsed       = provider::azapi::parse_resource_id("Microsoft.Storage/storageAccounts", var.storage_account_id)
+  storage_account_name            = local.storage_account_id_parsed["name"]
+  storage_account_subscription_id = local.storage_account_id_parsed["subscription_id"]
+
 }

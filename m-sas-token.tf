@@ -7,6 +7,7 @@ module "service_token" {
   service_type                 = var.service_token_service_type
   storage_account_id           = var.storage_account_id
   expiration_duration_in_hours = var.expiration_duration_in_hours
+  storage_key_name             = var.account_token_storage_key_name
 
 }
 

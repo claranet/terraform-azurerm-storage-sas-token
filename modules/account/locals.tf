@@ -30,4 +30,8 @@ locals {
 
   services = join("", [for service in var.services : local.services_mapping[service]])
 
+  storage_account_id_parsed       = provider::azapi::parse_resource_id("Microsoft.Storage/storageAccounts", var.storage_account_id)
+  storage_account_name            = local.storage_account_id_parsed["name"]
+  storage_account_subscription_id = local.storage_account_id_parsed["subscription_id"]
+
 }
