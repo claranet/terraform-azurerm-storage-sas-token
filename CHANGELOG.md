@@ -1,3 +1,22 @@
+## 8.2.0 (2025-06-27)
+
+### Features
+
+* **AZ-1572:** ✨ add script for generating Azure Storage account SAS [secure] e99b36f
+* **AZ-1572:** ✨ add script for generating Azure Storage SAS [secure] bba14dc
+
+### Bug Fixes
+
+* **AZ-1572:** 🔧 enforce strict order for permissions symbols 8bbe81e
+* **AZ-1572:** 🔧 update parameter names for service-level SAS token generation 76ca372
+
+### Miscellaneous Chores
+
+* **⚙️:** ✏️ update template identifier for MR review 90448a3
+* **deps:** update dependency opentofu to v1.10.0 01f4e25
+* **deps:** update dependency opentofu to v1.10.1 7665694
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.2.1 2f74b7a
+
 ## 8.1.1 (2025-06-06)
 
 ### Bug Fixes
