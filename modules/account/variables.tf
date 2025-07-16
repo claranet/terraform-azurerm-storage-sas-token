@@ -55,7 +55,7 @@ variable "expiration_duration_in_hours" {
 
 
 variable "permissions" {
-  description = "Permissions to grant for the service. Must be one of : read, write, delete, list, add, create, update, process."
+  description = "Permissions to grant for the service. Must be one of: `read`, `write`, `delete`, `list`, `add`, `create`, `update`, `process`."
   type        = list(string)
   validation {
     condition = alltrue([

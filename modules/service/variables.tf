@@ -1,5 +1,5 @@
 variable "service_type" {
-  description = "Type of the service to generate a SAS token for. Must be one of : container, blob, file, share."
+  description = "Type of the service to generate a SAS token for. Must be one of: `container`, `blob`, `file`, `share`."
   type        = string
   validation {
     condition     = contains(keys(local.signed_resource), var.service_type)
@@ -8,14 +8,14 @@ variable "service_type" {
 }
 
 variable "permissions" {
-  description = "Permissions to grant for the service. Must be one of : read, add, create, write, delete, delete version, permanent delete, list, tags, find, move, execute, ownership, permissions, set immutability policy, update, process, query."
+  description = "Permissions to grant for the service. Must be one of: `read`, `add`, `create`, `write`, `delete`, `delete version`, `permanent delete`, `list`, `tags`, `find`, `move`, `execute`, `ownership`, `permissions`, `set immutability policy`, `update`, `process`, `query`."
   type        = list(string)
   validation {
     condition = alltrue([
       for permission in var.permissions :
       contains(keys(local.permissions_mapping), permission)
     ])
-    error_message = "Allowed permissions are read, add, create, write, delete, delete version, permanent delete, list, tags, find, move, execute, ownership, permissions, set immutability policy, update, process, query."
+    error_message = "Allowed permissions are: `read`, `add`, `create`, `write`, `delete`, `delete version`, `permanent delete`, `list`, `tags`, `find`, `move`, `execute`, `ownership`, `permissions`, `set immutability policy`, `update`, `process`, `query`."
   }
 }
 

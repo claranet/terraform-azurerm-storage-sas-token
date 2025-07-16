@@ -68,7 +68,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | expiration\_duration\_in\_hours | Duration in hours for which the SAS token will be valid. Default is 1 hour. | `number` | `1` | no |
 | expiration\_start\_date | Date and time when the SAS token becomes valid. Should be an RFC3339 formatted string. Change this to trigger a new token. | `string` | n/a | yes |
-| permissions | Permissions to grant for the service. Must be one of : read, write, delete, list, add, create, update, process. | `list(string)` | n/a | yes |
+| permissions | Permissions to grant for the service. Must be one of: `read`, `write`, `delete`, `list`, `add`, `create`, `update`, `process`. | `list(string)` | n/a | yes |
 | resources\_types | The resource types the Account SAS is applicable for. Allowed values: service, container, object. Can be combined. | `list(string)` | <pre>[<br/>  "service",<br/>  "container",<br/>  "object"<br/>]</pre> | no |
 | services | The storage services the Account SAS is applicable for. Allowed values: `blob`, `file`, `queue`, `table`. Can be combined. | `list(string)` | <pre>[<br/>  "blob",<br/>  "file",<br/>  "queue",<br/>  "table"<br/>]</pre> | no |
 | storage\_account\_id | The storage account ID to generate the SAS token for. | `string` | n/a | yes |

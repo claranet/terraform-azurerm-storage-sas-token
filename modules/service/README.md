@@ -82,9 +82,9 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | expiration\_duration\_in\_hours | Duration in hours for which the SAS token will be valid. Default is 1 hour. | `number` | `1` | no |
 | expiration\_start\_date | Date and time when the SAS token becomes valid. Should be an RFC3339 formatted string. | `string` | n/a | yes |
-| permissions | Permissions to grant for the service. Must be one of : read, add, create, write, delete, delete version, permanent delete, list, tags, find, move, execute, ownership, permissions, set immutability policy, update, process, query. | `list(string)` | n/a | yes |
+| permissions | Permissions to grant for the service. Must be one of: `read`, `add`, `create`, `write`, `delete`, `delete version`, `permanent delete`, `list`, `tags`, `find`, `move`, `execute`, `ownership`, `permissions`, `set immutability policy`, `update`, `process`, `query`. | `list(string)` | n/a | yes |
 | service\_name | Name of the service to generate the SAS token for. It can be a container name, blob name, file share name, etc. | `string` | n/a | yes |
-| service\_type | Type of the service to generate a SAS token for. Must be one of : container, blob, file, share. | `string` | n/a | yes |
+| service\_type | Type of the service to generate a SAS token for. Must be one of: `container`, `blob`, `file`, `share`. | `string` | n/a | yes |
 | storage\_account\_id | ID of the Storage Account to generate the SAS token for. | `string` | n/a | yes |
 | storage\_key\_name | Name of the storage key to use for generating the SAS token. Default is `key1`. | `string` | `"key1"` | no |
 
