@@ -1,3 +1,16 @@
+## 8.2.1 (2025-07-16)
+
+### Documentation
+
+* 📚️ update variable descriptions 3c59ea4
+
+### Miscellaneous Chores
+
+* 🗑️ remove old commitlint configuration files a7caeb6
+* **deps:** update dependency opentofu to v1.10.3 0aa39b4
+* **deps:** update dependency tflint to v0.58.1 c9f6738
+* **deps:** update tools c4b85c5
+
 ## 8.2.0 (2025-06-27)
 
 ### Features
