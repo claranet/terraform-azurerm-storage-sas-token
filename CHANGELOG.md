@@ -1,3 +1,37 @@
+## 8.2.2 (2026-02-02)
+
+### Documentation
+
+* 📚️ update example fc6383d
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.10.6 dd709b4
+* **deps:** update dependency opentofu to v1.10.7 5ee275f
+* **deps:** update dependency opentofu to v1.11.2 95931b8
+* **deps:** update dependency opentofu to v1.11.3 ccee8d7
+* **deps:** update dependency opentofu to v1.11.4 34ebf36
+* **deps:** update dependency pre-commit to v4.4.0 9509d02
+* **deps:** update dependency pre-commit to v4.5.0 40b0fdb
+* **deps:** update dependency pre-commit to v4.5.1 6f4ba43
+* **deps:** update dependency tflint to v0.59.1 5b1d211
+* **deps:** update dependency tflint to v0.60.0 0d69ca8
+* **deps:** update dependency trivy to v0.66.0 2dbcc11
+* **deps:** update dependency trivy to v0.67.0 adcae0c
+* **deps:** update dependency trivy to v0.67.1 8defee1
+* **deps:** update dependency trivy to v0.67.2 21d9e81
+* **deps:** update dependency trivy to v0.68.1 d50f7e9
+* **deps:** update dependency trivy to v0.68.2 48109e7
+* **deps:** update dependency trivy to v0.69.0 dca5679
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.10 cda3bc5
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.8 c86149f
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.9 4489fb9
+* **deps:** update pre-commit hook pre-commit/pre-commit-hooks to v6 67e56df
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.2.2 2b87745
+* **deps:** update tools 22b6908
+* **deps:** update tools 7f8b8e9
+* **deps:** update tools 7210955
+
 ## 8.2.1 (2025-07-16)
 
 ### Documentation
