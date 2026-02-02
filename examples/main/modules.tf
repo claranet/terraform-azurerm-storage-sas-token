@@ -6,6 +6,13 @@ resource "azurerm_storage_account" "my_storage" {
   name                     = "mystorage"
   resource_group_name      = module.rg.name
   min_tls_version          = "TLS1_2"
+
+  network_rules {
+    default_action             = "Deny"
+    bypass                     = ["AzureServices"]
+    ip_rules                   = []
+    virtual_network_subnet_ids = []
+  }
 }
 
 module "storage_sas_token" {
@@ -26,7 +33,7 @@ module "storage_sas_token" {
 ### Service SAS for a container
 resource "azurerm_storage_container" "my_container" {
   name                  = "mycontainer"
-  storage_account_name  = azurerm_storage_account.my_storage.name
+  storage_account_id    = azurerm_storage_account.my_storage.id
   container_access_type = "private"
 }
 
@@ -43,6 +50,5 @@ module "container_sas_token" {
   permissions                = ["read", "list", "write", "append", "create", "delete"]
 
 }
-
 
 resource "time_static" "main" {}
