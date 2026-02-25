@@ -13,6 +13,10 @@ resource "azurerm_storage_account" "my_storage" {
     ip_rules                   = []
     virtual_network_subnet_ids = []
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 module "storage_sas_token" {
@@ -35,6 +39,10 @@ resource "azurerm_storage_container" "my_container" {
   name                  = "mycontainer"
   storage_account_id    = azurerm_storage_account.my_storage.id
   container_access_type = "private"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 module "container_sas_token" {
