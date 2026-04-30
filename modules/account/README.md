@@ -47,7 +47,7 @@ module "sas_token" {
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | external | ~> 2.3 |
 | time | ~> 0.13 |
 
@@ -58,14 +58,14 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [time_static.main](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/static) | resource |
 | [external_external.main](https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/external) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | expiration\_duration\_in\_hours | Duration in hours for which the SAS token will be valid. Default is 1 hour. | `number` | `1` | no |
 | expiration\_start\_date | Date and time when the SAS token becomes valid. Should be an RFC3339 formatted string. Change this to trigger a new token. | `string` | n/a | yes |
 | permissions | Permissions to grant for the service. Must be one of: `read`, `write`, `delete`, `list`, `add`, `create`, `update`, `process`. | `list(string)` | n/a | yes |
@@ -77,7 +77,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | resource | External data source object. |
 | sas\_token | SAS Token for accessing the Storage Account. |
 <!-- END_TF_DOCS -->

@@ -112,7 +112,7 @@ No providers.
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | account\_token | ./modules/account | n/a |
 | service\_token | ./modules/service | n/a |
 
@@ -123,7 +123,7 @@ No resources.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | account\_token\_resources\_types | The resource types the Account SAS is applicable for. Allowed values: service, container, object. Can be combined. | `list(string)` | <pre>[<br/>  "service",<br/>  "container",<br/>  "object"<br/>]</pre> | no |
 | account\_token\_services | The storage services the Account SAS is applicable for. Allowed values: `blob`, `file`, `queue`, `table`. Can be combined. | `list(string)` | <pre>[<br/>  "blob",<br/>  "file",<br/>  "queue",<br/>  "table"<br/>]</pre> | no |
 | account\_token\_storage\_key\_name | Name of the storage key to use for generating the Service SAS token. Default is `key1`. | `string` | `"key1"` | no |
@@ -138,7 +138,7 @@ No resources.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | module\_account | Account sas token module output. |
 | module\_service | Service sas token module output. |
 | sas\_token | SAS Token for accessing the Storage Account. |
