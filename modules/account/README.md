@@ -49,7 +49,7 @@ module "sas_token" {
 | Name | Version |
 | ---- | ------- |
 | external | ~> 2.3 |
-| time | ~> 0.13 |
+| time | ~> 0.14 |
 
 ## Modules
 
